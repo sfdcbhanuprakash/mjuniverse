@@ -1,92 +1,41 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 45 65% 52%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 45 65% 52%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 45 65% 52%;
 
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -96,6 +45,99 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-mjblack text-foreground font-playfair;
   }
+}
+
+.gold-shimmer {
+  @apply bg-gold-gradient bg-[length:200%_100%] animate-shimmer;
+}
+
+.gold-glow {
+  @apply animate-glow;
+}
+
+.timeline-item::before {
+  @apply content-[''] absolute w-3 h-3 bg-gold rounded-full -left-[6.5px] top-6 z-10;
+}
+
+.timeline-line {
+  @apply absolute h-full w-0.5 bg-gold-light bg-opacity-50 left-0 top-0;
+}
+
+.page-heading {
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gold-light;
+}
+
+.section-heading {
+  @apply text-2xl md:text-3xl font-bold mb-4 text-gold;
+}
+
+.fancy-link {
+  @apply relative text-gold hover:text-gold-light transition-colors;
+}
+
+.fancy-link::after {
+  @apply content-[''] absolute w-full scale-x-0 h-0.5 bg-gold-light bottom-0 left-0 origin-bottom-right transition-transform duration-300;
+}
+
+.fancy-link:hover::after {
+  @apply scale-x-100 origin-bottom-left;
+}
+
+/* Carousel styling */
+.carousel-dot {
+  @apply w-3 h-3 rounded-full bg-white bg-opacity-30 mx-1 cursor-pointer transition-all;
+}
+
+.carousel-dot.active {
+  @apply bg-gold w-6;
+}
+
+/* Gallery styling */
+.gallery-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4;
+}
+
+/* Timeline styling */
+.timeline-container {
+  @apply relative pl-8 border-l-2 border-gold;
+}
+
+.timeline-item {
+  @apply mb-10 relative;
+}
+
+.timeline-item::before {
+  @apply content-[''] absolute w-4 h-4 bg-gold rounded-full -left-[9px] top-1.5;
+}
+
+.timeline-year {
+  @apply text-xl font-bold mb-1 text-gold;
+}
+
+/* Form styling */
+.mj-input {
+  @apply bg-mjblack-light border border-gold-dark rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-gold;
+}
+
+.mj-textarea {
+  @apply bg-mjblack-light border border-gold-dark rounded-md p-2 w-full h-32 focus:outline-none focus:ring-2 focus:ring-gold;
+}
+
+/* Glowing button */
+.glow-button {
+  @apply relative px-6 py-2 overflow-hidden bg-mjblack-light text-gold border border-gold rounded-md hover:text-white transition-colors duration-300 inline-block;
+}
+
+.glow-button::before {
+  @apply content-[''] absolute inset-0 bg-gold opacity-0 transition-opacity duration-300;
+}
+
+.glow-button:hover::before {
+  @apply opacity-20;
+}
+
+.glow-button:hover {
+  @apply shadow-[0_0_10px_rgba(212,175,55,0.5)];
 }
