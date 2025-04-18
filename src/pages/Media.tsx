@@ -12,6 +12,18 @@ import {
 } from '@/lib/constants';
 import { Play, Disc, Mic } from 'lucide-react';
 
+// Define types for our video objects
+interface BaseVideo {
+  id: number;
+  title: string;
+  embedId: string;
+}
+
+interface VideoWithMetadata extends BaseVideo {
+  year?: number | string;
+  description?: string;
+}
+
 const Media = () => {
   const [activeTab, setActiveTab] = useState("videos");
   const [videoCategory, setVideoCategory] = useState("albums");
@@ -36,14 +48,14 @@ const Media = () => {
     ...VIDEO_CATEGORIES.map(cat => ({ ...cat, icon: <Play className="w-4 h-4" /> }))
   ];
 
-  const getVideoContent = () => {
+  const getVideoContent = (): VideoWithMetadata[] => {
     switch(videoCategory) {
       case "albums":
-        return ALBUM_COLLECTION;
+        return ALBUM_COLLECTION as VideoWithMetadata[];
       case "live":
-        return LIVE_PERFORMANCES;
+        return LIVE_PERFORMANCES as VideoWithMetadata[];
       default:
-        return VIDEO_COLLECTION[videoCategory as keyof typeof VIDEO_COLLECTION];
+        return VIDEO_COLLECTION[videoCategory as keyof typeof VIDEO_COLLECTION] as VideoWithMetadata[];
     }
   };
 
@@ -89,10 +101,10 @@ const Media = () => {
                     <YouTubeEmbed embedId={video.embedId} title={video.title} />
                     <div className="p-4">
                       <h3 className="text-lg font-semibold text-gold">{video.title}</h3>
-                      {'year' in video && video.year && (
+                      {video.year && (
                         <p className="text-sm text-gray-400 mt-1">{video.year}</p>
                       )}
-                      {'description' in video && video.description && (
+                      {video.description && (
                         <p className="text-gray-300 mt-2 text-sm">{video.description}</p>
                       )}
                     </div>
