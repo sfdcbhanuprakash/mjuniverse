@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import PageBanner from '@/components/PageBanner';
 import YouTubeEmbed from '@/components/YouTubeEmbed';
@@ -88,10 +89,10 @@ const Media = () => {
                     <YouTubeEmbed embedId={video.embedId} title={video.title} />
                     <div className="p-4">
                       <h3 className="text-lg font-semibold text-gold">{video.title}</h3>
-                      {video.year && (
+                      {'year' in video && video.year && (
                         <p className="text-sm text-gray-400 mt-1">{video.year}</p>
                       )}
-                      {video.description && (
+                      {'description' in video && video.description && (
                         <p className="text-gray-300 mt-2 text-sm">{video.description}</p>
                       )}
                     </div>
