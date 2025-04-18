@@ -1,14 +1,19 @@
-
 import React, { useState } from 'react';
 import PageBanner from '@/components/PageBanner';
 import YouTubeEmbed from '@/components/YouTubeEmbed';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { VIDEO_CATEGORIES, VIDEO_COLLECTION, GALLERY_IMAGES } from '@/lib/constants';
-import { Play } from 'lucide-react';
+import { 
+  VIDEO_CATEGORIES, 
+  VIDEO_COLLECTION, 
+  GALLERY_IMAGES,
+  ALBUM_COLLECTION,
+  LIVE_PERFORMANCES 
+} from '@/lib/constants';
+import { Play, Disc, Mic } from 'lucide-react';
 
 const Media = () => {
   const [activeTab, setActiveTab] = useState("videos");
-  const [videoCategory, setVideoCategory] = useState("performances");
+  const [videoCategory, setVideoCategory] = useState("albums");
   const [galleryFilter, setGalleryFilter] = useState("all");
   
   const filteredImages = galleryFilter === "all" 
@@ -24,11 +29,28 @@ const Media = () => {
     { id: "performance", name: "Performances" }
   ];
 
+  const allVideoCategories = [
+    { id: "albums", name: "Albums", icon: <Disc className="w-4 h-4" /> },
+    { id: "live", name: "Live Shows", icon: <Mic className="w-4 h-4" /> },
+    ...VIDEO_CATEGORIES.map(cat => ({ ...cat, icon: <Play className="w-4 h-4" /> }))
+  ];
+
+  const getVideoContent = () => {
+    switch(videoCategory) {
+      case "albums":
+        return ALBUM_COLLECTION;
+      case "live":
+        return LIVE_PERFORMANCES;
+      default:
+        return VIDEO_COLLECTION[videoCategory as keyof typeof VIDEO_COLLECTION];
+    }
+  };
+
   return (
     <div>
       <PageBanner 
         title="Media Gallery" 
-        subtitle="Explore Michael's iconic videos, performances, and images"
+        subtitle="Explore Michael's iconic albums, performances, and images"
         backgroundImage="/images/media-banner.jpg"
       />
       
@@ -43,16 +65,17 @@ const Media = () => {
             <TabsContent value="videos" className="animate-fade-in">
               <div className="mb-8 flex justify-center">
                 <div className="flex space-x-2 overflow-x-auto pb-2">
-                  {VIDEO_CATEGORIES.map(category => (
+                  {allVideoCategories.map(category => (
                     <button
                       key={category.id}
-                      className={`px-4 py-2 rounded-full transition-colors ${
+                      className={`px-4 py-2 rounded-full transition-colors inline-flex items-center gap-2 ${
                         videoCategory === category.id
                           ? 'bg-gold text-black font-semibold'
                           : 'bg-mjblack-light text-gray-300 hover:bg-mjblack-light/80'
                       }`}
                       onClick={() => setVideoCategory(category.id)}
                     >
+                      {category.icon}
                       {category.name}
                     </button>
                   ))}
@@ -60,11 +83,17 @@ const Media = () => {
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {VIDEO_COLLECTION[videoCategory as keyof typeof VIDEO_COLLECTION].map(video => (
+                {getVideoContent().map(video => (
                   <div key={video.id} className="bg-mjblack-light border border-gold-dark rounded-lg overflow-hidden hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] transition-shadow">
                     <YouTubeEmbed embedId={video.embedId} title={video.title} />
                     <div className="p-4">
                       <h3 className="text-lg font-semibold text-gold">{video.title}</h3>
+                      {video.year && (
+                        <p className="text-sm text-gray-400 mt-1">{video.year}</p>
+                      )}
+                      {video.description && (
+                        <p className="text-gray-300 mt-2 text-sm">{video.description}</p>
+                      )}
                     </div>
                   </div>
                 ))}

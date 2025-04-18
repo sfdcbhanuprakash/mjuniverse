@@ -1,4 +1,3 @@
-
 export const SITE_NAME = "MJ Universe";
 export const HERO_TITLE = "Celebrate the King of Pop";
 export const LEGAL_DISCLAIMER = "This is a fan-run tribute site. All content is used under fair use or public domain guidelines.";
@@ -187,3 +186,79 @@ export const VIDEO_COLLECTION = {
     { id: 3, title: "The Journey", embedId: "V57BlWIxmkg" }
   ]
 };
+
+export const ALBUM_COLLECTION = [
+  {
+    id: 1,
+    title: "Off the Wall",
+    year: 1979,
+    embedId: "B5hK3XbOXHc", // Official album playlist
+    description: "Michael's breakthrough solo album featuring 'Don't Stop 'Til You Get Enough'"
+  },
+  {
+    id: 2,
+    title: "Thriller",
+    year: 1982,
+    embedId: "sOnqjkJTMaA", // Thriller official video
+    description: "The best-selling album of all time"
+  },
+  {
+    id: 3,
+    title: "Bad",
+    year: 1987,
+    embedId: "dsUXAEzaC3Q", // Bad official video
+    description: "First album to generate five Billboard Hot 100 number-one singles"
+  },
+  {
+    id: 4,
+    title: "Dangerous",
+    year: 1991,
+    embedId: "F2AitTPI5U0", // Black or White official video
+    description: "Features hits like 'Black or White' and 'Remember the Time'"
+  },
+  {
+    id: 5,
+    title: "HIStory: Past, Present and Future, Book I",
+    year: 1995,
+    embedId: "QNJL6nfu__Q", // Earth Song official video
+    description: "Best-selling multiple-disc album worldwide"
+  },
+  {
+    id: 6,
+    title: "Invincible",
+    year: 2001,
+    embedId: "LJ7qXHjxj_0", // You Rock My World official video
+    description: "Michael's final studio album"
+  }
+];
+
+export const LIVE_PERFORMANCES = [
+  {
+    id: 1,
+    title: "Super Bowl XXVII Halftime Show",
+    year: 1993,
+    embedId: "nBkNQZ-6QHg",
+    description: "One of the most watched performances in television history"
+  },
+  {
+    id: 2,
+    title: "Billie Jean (Motown 25)",
+    year: 1983,
+    embedId: "g3t9-jNjK-A",
+    description: "The legendary moonwalk debut performance"
+  },
+  {
+    id: 3,
+    title: "Dangerous World Tour - Bucharest",
+    year: 1992,
+    embedId: "Hxgo-Qu-ZZE",
+    description: "Complete concert from the Dangerous World Tour"
+  },
+  {
+    id: 4,
+    title: "This Is It Rehearsals",
+    year: 2009,
+    embedId: "LQNOr2RQZxM",
+    description: "Behind the scenes of Michael's final concert preparations"
+  }
+];
