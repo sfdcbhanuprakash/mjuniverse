@@ -125,11 +125,36 @@ export const TIMELINE_EVENTS = [
 ];
 
 export const GALLERY_IMAGES = [
-  { id: 1, src: "/images/gallery-1.jpg", alt: "Michael Jackson early years", category: "early" },
-  { id: 2, src: "/images/gallery-2.jpg", alt: "Michael Jackson Thriller era", category: "thriller" },
-  { id: 3, src: "/images/gallery-3.jpg", alt: "Michael Jackson Bad era", category: "bad" },
-  { id: 4, src: "/images/gallery-4.jpg", alt: "Michael Jackson Dangerous era", category: "dangerous" },
-  { id: 5, src: "/images/gallery-5.jpg", alt: "Michael Jackson HIStory era", category: "history" },
+  { 
+    id: 1, 
+    src: "https://i.ibb.co/5vZ6Lvx/mj-dangerous.jpg", 
+    alt: "Michael Jackson Dangerous Era",
+    category: "dangerous"
+  },
+  { 
+    id: 2, 
+    src: "https://i.ibb.co/G3Qs7Zk/mj-bad.jpg", 
+    alt: "Michael Jackson Bad Era",
+    category: "bad"
+  },
+  { 
+    id: 3, 
+    src: "https://i.ibb.co/CwKGXk2/mj-thriller.jpg", 
+    alt: "Michael Jackson Thriller Era",
+    category: "thriller"
+  },
+  { 
+    id: 4, 
+    src: "https://i.ibb.co/8XtSv0C/mj-performance.jpg", 
+    alt: "Michael Jackson Live Performance",
+    category: "performance"
+  },
+  { 
+    id: 5, 
+    src: "https://i.ibb.co/fDZ2vKQ/mj-early.jpg", 
+    alt: "Young Michael Jackson",
+    category: "early"
+  },
   { id: 6, src: "/images/gallery-6.jpg", alt: "Michael Jackson live performance", category: "performance" },
   { id: 7, src: "/images/gallery-7.jpg", alt: "Michael Jackson humanitarian work", category: "humanitarian" },
   { id: 8, src: "/images/gallery-8.jpg", alt: "Michael Jackson with fans", category: "fans" },
@@ -171,9 +196,41 @@ export const VIDEO_CATEGORIES = [
 
 export const VIDEO_COLLECTION = {
   performances: [
-    { id: 1, title: "Billie Jean (Motown 25)", embedId: "g3t9-jNjK-A" },
-    { id: 2, title: "Beat It (Live)", embedId: "oRdxUFDoQe0" },
-    { id: 3, title: "Smooth Criminal (Live)", embedId: "h_D3VFfhvs4" }
+    { 
+      id: 1, 
+      title: "Billie Jean (Motown 25)", 
+      embedId: "g3t9-jNjK-A",
+      year: 1983,
+      description: "The legendary moonwalk debut performance"
+    },
+    { 
+      id: 2, 
+      title: "Thriller (Official Video)", 
+      embedId: "sOnqjkJTMaA",
+      year: 1983,
+      description: "The iconic music video that revolutionized the industry"
+    },
+    { 
+      id: 3, 
+      title: "Beat It (Official Video)", 
+      embedId: "oRdxUFDoQe0",
+      year: 1983,
+      description: "The classic hit featuring Eddie Van Halen"
+    },
+    { 
+      id: 4, 
+      title: "Man in the Mirror (Grammy Awards)", 
+      embedId: "PivWY9wn5ps",
+      year: 1988,
+      description: "Powerful live performance at the Grammy Awards"
+    },
+    { 
+      id: 5, 
+      title: "Smooth Criminal (Official Video)", 
+      embedId: "h_D3VFfhvs4",
+      year: 1988,
+      description: "Featuring the iconic anti-gravity lean"
+    }
   ],
   interviews: [
     { id: 1, title: "Oprah Winfrey Interview (1993)", embedId: "BbItFJJPPmA" },
@@ -190,31 +247,31 @@ export const VIDEO_COLLECTION = {
 export const ALBUM_COLLECTION = [
   {
     id: 1,
-    title: "Off the Wall",
-    year: 1979,
-    embedId: "B5hK3XbOXHc", // Official album playlist
-    description: "Michael's breakthrough solo album featuring 'Don't Stop 'Til You Get Enough'"
+    title: "Dangerous", 
+    embedId: "F2AitTPI5U0",
+    year: 1991,
+    description: "Black or White official video"
   },
   {
     id: 2,
-    title: "Thriller",
-    year: 1982,
-    embedId: "sOnqjkJTMaA", // Thriller official video
-    description: "The best-selling album of all time"
+    title: "Bad", 
+    embedId: "dsUXAEzaC3Q",
+    year: 1987,
+    description: "Bad official video"
   },
   {
     id: 3,
-    title: "Bad",
-    year: 1987,
-    embedId: "dsUXAEzaC3Q", // Bad official video
-    description: "First album to generate five Billboard Hot 100 number-one singles"
+    title: "Earth Song", 
+    embedId: "XAi3VTSdTxU",
+    year: 1995,
+    description: "Earth Song official video"
   },
   {
     id: 4,
-    title: "Dangerous",
-    year: 1991,
-    embedId: "F2AitTPI5U0", // Black or White official video
-    description: "Features hits like 'Black or White' and 'Remember the Time'"
+    title: "They Don't Care About Us", 
+    embedId: "QNJL6nfu__Q",
+    year: 1996,
+    description: "Powerful message about social justice"
   },
   {
     id: 5,
